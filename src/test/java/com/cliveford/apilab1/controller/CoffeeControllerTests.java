@@ -1,6 +1,5 @@
 package com.cliveford.apilab1.controller;
 
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,18 +11,18 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @AutoConfigureMockMvc
 @SpringBootTest
 
-public class HomeControllerTests {
+public class CoffeeControllerTests {
 
     @Autowired
     private MockMvc mockMvcController;
 
     @Test
-    public void testGetHome() throws Exception {
+    public void testGetCoffeeLover() throws Exception {
 
-        String expectedContent = "Welcome to the Drinks API!";
+        String expectedContent = "I like coffee!";
 
         this.mockMvcController.perform(
-            MockMvcRequestBuilders.get("/"))
+            MockMvcRequestBuilders.get("/coffeelover"))
             .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(MockMvcResultMatchers.content().string(expectedContent));
     }
