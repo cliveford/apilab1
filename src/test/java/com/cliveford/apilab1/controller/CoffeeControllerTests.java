@@ -1,5 +1,7 @@
 package com.cliveford.apilab1.controller;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -35,7 +37,7 @@ public class CoffeeControllerTests {
         this.mockMvcController.perform(
                         MockMvcRequestBuilders.get("/coffee"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string(expectedContent));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(expectedContent));
     }
 
     @Test
@@ -46,6 +48,6 @@ public class CoffeeControllerTests {
         this.mockMvcController.perform(
                         MockMvcRequestBuilders.get("/coffee?name=cappuccino"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string(expectedContent));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(expectedContent));
     }
 }
