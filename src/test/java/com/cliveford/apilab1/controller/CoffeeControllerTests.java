@@ -22,8 +22,10 @@ public class CoffeeControllerTests {
         String expectedContent = "I like coffee!";
 
         this.mockMvcController.perform(
-            MockMvcRequestBuilders.get("/coffeelover"))
-            .andExpect(MockMvcResultMatchers.status().isOk())
-            .andExpect(MockMvcResultMatchers.content().string(expectedContent));
+                        MockMvcRequestBuilders.get("/coffeelover"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(expectedContent));
     }
+
+
 }
